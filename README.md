@@ -20,16 +20,16 @@ Store the last 48 hours of weather data in a SQLite database.
 
 #### REST API endpoints for:
 
-/weather-report?lat={lat}&lon={lon} – Fetch and store data
+/weather-report  -Fetch data from api and store data
 
 /export/excel – Download last 48 hours of data as Excel (.xlsx)
 
 /export/pdf – Generate a PDF report with charts for temperature & humidity
 
 ## Build with
-Python 3.11+
+Python 3.13
 
-FastAPI / Flask
+FastAPI
 
 SQLite
 
@@ -44,9 +44,8 @@ WeasyPrint (for PDF generation)
 #### 1. Fetch Weather Data
 
 ```http
-   GET /weather-report?lat={lat}&lon={lon}
+   GET /weather-report
 ```
-
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
