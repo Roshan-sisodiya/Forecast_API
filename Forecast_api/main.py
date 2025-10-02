@@ -20,7 +20,7 @@ async def shutdown_event():
 
 
 # Register routers
-app.include_router(MainController.router, prefix="/app", tags=["index"])
+app.include_router(MainController.router, prefix="/api", tags=["index"])
 
 
 def main():

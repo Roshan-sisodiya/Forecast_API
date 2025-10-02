@@ -44,7 +44,7 @@ WeasyPrint (for PDF generation)
 #### 1. Fetch Weather Data
 
 ```http
-   GET /weather-report
+   GET api/weather-report
 ```
 
 | Parameter | Type     | Description                       |
@@ -66,7 +66,7 @@ Stores timestamp, temperature, and humidity in SQLite DB
 #### 2. Export Excel
 
 ```http
-  GET /export/excel
+  GET api/export/excel
 ```
 
 | Parameter | Type     | Description                       |
@@ -85,7 +85,7 @@ Columns: timestamp | temperature_2m | relative_humidity_2m
 
 
 ```http
- GET /export/pdf
+ GET api/export/pdf
 ```
 
 | Parameter | Type     | Description                       |
