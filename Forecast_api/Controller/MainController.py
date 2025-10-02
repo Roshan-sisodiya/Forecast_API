@@ -51,7 +51,20 @@ async def export_data(request: ForecastRequestDTO):
         print(data)
         _data = []
         if len(data) == 0:
-            return {"message": "No data found for the given coordinates."}
+            info = await fetch_weather_data(request.Latitude, request.Longitude)
+            await store_weather_data(info, request.Latitude, request.Longitude)
+            data=await fetch_DBWeather_data(request.Latitude, request.Longitude)
+            for row in data:
+                temps = row[3].split(",")
+                hums = row[4].split(",")
+                timestamps = row[5].split(",")
+
+                for t, temp, hum in zip(timestamps, temps, hums):
+                    _data.append({
+                    "timestamp": t,
+                    "temperature_2m": float(temp),
+                    "relative_humidity_2m": float(hum)
+                })
         else:
             for row in data:
                 temps = row[3].split(",")
@@ -101,7 +114,20 @@ async def export_data(request: ForecastRequestDTO):
         #print(data)
         _data = []
         if len(data) == 0:
-            return {"message": "No data found for the given coordinates."}
+            info=await fetch_weather_data(request.Latitude, request.Longitude)
+            await store_weather_data(info, request.Latitude, request.Longitude)
+            data=await fetch_DBWeather_data(request.Latitude, request.Longitude)
+            for row in data:
+                temps = row[3].split(",")
+                hums = row[4].split(",")
+                timestamps = row[5].split(",")
+
+                for t, temp, hum in zip(timestamps, temps, hums):
+                    _data.append({
+                    "timestamp": t,
+                    "temperature_2m": float(temp),
+                    "relative_humidity_2m": float(hum)
+                })
         else:
             for row in data:
                 temps = row[3].split(",")
